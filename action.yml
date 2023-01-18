@@ -1,0 +1,15 @@
+name: 'PR File Change Threshold Comment'
+description: 'Comment on pull request when number of file changes exceeds threshold.'
+author: 'Sachin Chaurasiya <sachinchaurasiyachotey87@gmail.com>'
+
+branding:
+  icon: 'message-circle'
+  color: 'blue'
+
+inputs:
+  threshold:
+    description: 'The threshold value for the number of file changes'
+    required: true
+  github_token:
+    description: 'The GitHub token to use for authentication'
+    required: true
