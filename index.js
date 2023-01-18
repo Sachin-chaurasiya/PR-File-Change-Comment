@@ -11,7 +11,7 @@ async function run() {
     const prNumber = pr.number;
 
     // Get the number of file changes
-    const octokit = new github.GitHub(core.getInput('github_token'));
+    const octokit = github.getOctokit(core.getInput('github_token'));
     const files = await octokit.pulls.listFiles({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,

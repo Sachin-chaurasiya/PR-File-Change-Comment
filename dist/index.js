@@ -9831,7 +9831,7 @@ async function run() {
     const prNumber = pr.number;
 
     // Get the number of file changes
-    const octokit = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('github_token'));
+    const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('github_token'));
     const files = await octokit.pulls.listFiles({
       owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
       repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
