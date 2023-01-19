@@ -9828,11 +9828,11 @@ async function run() {
 
     // Get the pull request number
     const pr = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request;
-    const prNumber = pr.number;
+    const prNumber = pr?.number;
 
     // Get the number of file changes
     const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('github_token'));
-    const files = await octokit.pulls.listFiles({
+    const files = await octokit.pulls?.listFiles({
       owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
       repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
       pull_number: prNumber,

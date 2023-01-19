@@ -8,11 +8,11 @@ async function run() {
 
     // Get the pull request number
     const pr = github.context.payload.pull_request;
-    const prNumber = pr.number;
+    const prNumber = pr?.number;
 
     // Get the number of file changes
     const octokit = github.getOctokit(core.getInput('github_token'));
-    const files = await octokit.pulls.listFiles({
+    const files = await octokit.pulls?.listFiles({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       pull_number: prNumber,
