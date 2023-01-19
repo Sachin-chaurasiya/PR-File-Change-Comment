@@ -13721,7 +13721,9 @@ async function run() {
     // Check if the number of file changes is greater than the threshold
     if (files.length > threshold) {
       // Comment on the pull request
-      const comment = `The number of file changes (${files.length}) exceeds the threshold of ${threshold}.`;
+      const comment = `# The number of file changes exceeds the threshold
+      Expected number of file changes : ${threshold}
+      Actual number of file changes : ${files.length}`;
       await octokit.issues.createComment({
         owner: context.repo.owner,
         repo: context.repo.repo,
