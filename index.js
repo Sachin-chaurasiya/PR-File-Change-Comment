@@ -1,5 +1,5 @@
-import * as core from '@actions/core';
-import * as github from '@actions/github';
+const core = require('@actions/core');
+const { Octokit } = require('@octokit/action');
 
 async function run() {
   try {
@@ -10,7 +10,7 @@ async function run() {
     const prNumber = github.context.payload.pull_request?.number;
 
     // Get the number of file changes
-    const octokit = github.getOctokit(core.getInput('github_token'));
+    const octokit = new Octokit();
     const { data: files } = await octokit.pulls.listFiles({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
