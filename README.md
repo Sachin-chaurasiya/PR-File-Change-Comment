@@ -18,3 +18,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
 ```
+
+## Example Comment
+
+<img width="965" alt="image" src="https://user-images.githubusercontent.com/59080942/213472614-53bd5151-0202-4d18-a137-aadd4f5a4b3e.png">
