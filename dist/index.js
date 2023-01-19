@@ -9827,22 +9827,21 @@ async function run() {
     const threshold = Number(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('threshold'));
 
     // Get the pull request number
-    const pr = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request;
-    const prNumber = pr?.number;
+    const prNumber = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request?.number;
 
     // Get the number of file changes
     const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(_actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('github_token'));
-    const files = await octokit.pulls?.listFiles({
+    const { data: files } = await octokit.pulls.listFiles({
       owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
       repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
       pull_number: prNumber,
     });
 
     // Check if the number of file changes is greater than the threshold
-    if (files.data.length > threshold) {
+    if (files.length > threshold) {
       // Comment on the pull request
-      const comment = `The number of file changes (${files.data.length}) exceeds the threshold of ${threshold}.`;
-      octokit.issues.createComment({
+      const comment = `The number of file changes (${files.length}) exceeds the threshold of ${threshold}.`;
+      await octokit.issues.createComment({
         owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
         repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
         issue_number: prNumber,
