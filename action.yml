@@ -1,4 +1,4 @@
-name: 'PR File Change Threshold Comment'
+name: 'PR File Change Comment'
 description: 'Comment on pull request when number of file changes exceeds threshold.'
 author: 'Sachin Chaurasiya <sachinchaurasiyachotey87@gmail.com>'
 
